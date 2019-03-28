@@ -116,8 +116,9 @@ GGToZZTo4mu       = ComponentContainer('GluGluToContinToZZTo4mu'     ,'/GluGluTo
 GGToZZTo4mu_ext   = ComponentContainer('GluGluToContinToZZTo4mu_ext1','/GluGluToContinToZZTo4mu_13TeV_MCFM701_pythia8/RunIIFall17NanoAODv4-PU2017_12Apr2018_Nano14Dec2018_102X_mc2017_realistic_v6_ext1-v1/NANOAODSIM',0.00159)
 GGToZZTo4tau      = ComponentContainer('GluGluToContinToZZTo4tau', '/GluGluToContinToZZTo4tau_13TeV_MCFM701_pythia8/RunIIFall17NanoAODv4-PU2017_12Apr2018_Nano14Dec2018_102X_mc2017_realistic_v6_ext1-v1/NANOAODSIM',0.00159)
 
+VH = ComponentContainer('VHToNonbb', '/VHToNonbb_M125_13TeV_amcatnloFXFX_madspin_pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/NANOAODSIM',0.9561)
 
-VV = [WWTo2L2Nu, WW_DPS, WZTo3LNu, WZTo2L2Q, ZZTo2L2Q, ZZTo2L2Nu, ZZTo2Q2Nu, ZZTo4L, ZZTo4L_ext, GGToZZTo2e2mu, GGToZZTo2e2mu_ext, GGToZZTo2e2nu, GGToZZTo2e2nu_ext, GGToZZTo2e2tau, GGToZZTo2e2tau_ext, GGToZZTo2mu2nu, GGToZZTo2mu2nu_ext, GGToZZTo2mu2tau, GGToZZTo2mu2tau_ext, GGToZZTo4e, GGToZZTo4e_ext, GGToZZTo4mu, GGToZZTo4mu_ext, GGToZZTo4tau]
+VV = [WWTo2L2Nu, WW_DPS, WZTo3LNu, WZTo2L2Q, ZZTo2L2Q, ZZTo2L2Nu, ZZTo2Q2Nu, ZZTo4L, ZZTo4L_ext, GGToZZTo2e2mu, GGToZZTo2e2mu_ext, GGToZZTo2e2nu, GGToZZTo2e2nu_ext, GGToZZTo2e2tau, GGToZZTo2e2tau_ext, GGToZZTo2mu2nu, GGToZZTo2mu2nu_ext, GGToZZTo2mu2tau, GGToZZTo2mu2tau_ext, GGToZZTo4e, GGToZZTo4e_ext, GGToZZTo4mu, GGToZZTo4mu_ext, GGToZZTo4tau, VH]
 
 
 WWW =   ComponentContainer('WWW','/WWW_4F_TuneCP5_13TeV-amcatnlo-pythia8/RunIIFall17NanoAODv4-PU2017_12Apr2018_Nano14Dec2018_102X_mc2017_realistic_v6-v1/NANOAODSIM',0.2086)

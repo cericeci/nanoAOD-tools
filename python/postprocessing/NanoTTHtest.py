@@ -21,7 +21,7 @@ slimfile = "SlimFile.txt"
 ### Include modules to compute derivate quantities or calculate uncertainties
 from modules.jme.jetmetUncertainties import *
 from modules.common.puWeightProducer import *
-from modules.ttH.skimNRecoLeps import *
+from modules.skimNRecoLeps import *
 
 mod = [puAutoWeight(), skimRecoLeps()] 
 

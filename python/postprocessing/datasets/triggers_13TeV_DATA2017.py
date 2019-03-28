@@ -82,6 +82,11 @@ triggers_leptau = ["HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1",
                    "HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1",
                    "HLT_DoubleMediumChargedIsoPFTau35_Trk1_eta2p1_Reg"]
 
+triggers_mutau = ["HLT_IsoMu27_LooseChargedIsoPFTau20_SingleL1",
+                   "HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1",
+                   "HLT_IsoMu24_eta2p1_LooseChargedIsoPFTau20_SingleL1"]
+
+triggers_etau = ["HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1"]
 
 triggers_htmet = ['HLT_PFHT500_PFMET100_PFMHT100_IDTight']
 
