@@ -20,8 +20,6 @@ class jetRecalib(Module):
             raise ValueError("ERROR: Invalid jet type = '%s'!" % jetType)
         self.rhoBranchName = "fixedGridRhoFastjetAll"
         self.lenVar = "n" + self.jetBranchName
-        # To do : change to real values
-        self.jmsVals = [1.00, 0.99, 1.01]
         
 
         self.jesInputFilePath = os.environ['CMSSW_BASE'] + "/src/PhysicsTools/NanoAODTools/data/jme/"
@@ -89,3 +87,10 @@ jetRecalib2017C = lambda : jetRecalib("Fall17_17Nov2017C_V6_DATA")
 jetRecalib2017D = lambda : jetRecalib("Fall17_17Nov2017D_V6_DATA")
 jetRecalib2017E = lambda : jetRecalib("Fall17_17Nov2017E_V6_DATA")
 jetRecalib2017F = lambda : jetRecalib("Fall17_17Nov2017F_V6_DATA")
+
+jetRecalib2018B = lambda : jetRecalib("Autumn18_RunB_V8_DATA")
+jetRecalib2018C = lambda : jetRecalib("Autumn18_RunC_V8_DATA")
+jetRecalib2018D = lambda : jetRecalib("Autumn18_RunD_V8_DATA")
+jetRecalib2018A = lambda : jetRecalib("Autumn18_RunA_V8_DATA")
+
+

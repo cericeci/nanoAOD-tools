@@ -60,6 +60,8 @@ class jetmetUncertaintiesProducer(Module):
                 self.jesUncertaintyInputFileName = "Summer16_23Sep2016V4_MC_Uncertainty_" + jetType + ".txt"
             elif self.era == "2017":
                 self.jesUncertaintyInputFileName = "Fall17_17Nov2017_V32_MC_Uncertainty_" + jetType + ".txt"
+            elif self.era == "2018":
+                self.jesUncertaintyInputFileName = "Autumn18_V8_MC_Uncertainty_" + jetType + ".txt"
             else:
                 raise ValueError("ERROR: Invalid era = '%s'!" % self.era)
         else:
@@ -67,6 +69,8 @@ class jetmetUncertaintiesProducer(Module):
                 self.jesUncertaintyInputFileName = "Summer16_23Sep2016V4_MC_UncertaintySources_" + jetType + ".txt"
             elif self.era == "2017":
                 self.jesUncertaintyInputFileName = "Fall17_17Nov2017_V32_MC_UncertaintySources_" + jetType + ".txt"
+            elif self.era == "2018":
+                self.jesUncertaintyInputFileName = "Autumn18_V8_MC_UncertaintySources_" + jetType + ".txt"
             else:
                 raise ValueError("ERROR: Invalid era = '%s'!" % self.era)
 
@@ -102,7 +106,7 @@ class jetmetUncertaintiesProducer(Module):
         # implementation didn't seem to work for factorized JEC, try again another way
         for jesUncertainty in self.jesUncertainties:
             jesUncertainty_label = jesUncertainty
-            if self.era == "2017" and jesUncertainty == 'Total' and len(self.jesUncertainties) == 1:
+            if (self.era == "2017" or self.era == "2018") and jesUncertainty == 'Total' and len(self.jesUncertainties) == 1:
                 jesUncertainty_label = ''
             pars = ROOT.JetCorrectorParameters(os.path.join(self.jesInputFilePath, self.jesUncertaintyInputFileName),jesUncertainty_label)
             self.jesUncertainty[jesUncertainty] = ROOT.JetCorrectionUncertainty(pars)    
@@ -431,6 +435,19 @@ jetmetUncertainties2017 =    lambda : jetmetUncertaintiesProducer("2017", "Fall1
 jetmetUncertainties2017All = lambda : jetmetUncertaintiesProducer("2017", "Fall17_17Nov2017_V32_MC", [ "All" ], redoJEC=True)
 jetmetUncertainties2017AK8chs    =    lambda : jetmetUncertaintiesProducer("2017", "Fall17_17Nov2017_V32_MC", [ "Total" ], jetType="AK8PFchs")
 jetmetUncertainties2017AK8chsAll = lambda : jetmetUncertaintiesProducer("2017", "Fall17_17Nov2017_V32_MC", [ "All" ], redoJEC=True)
+jetmetUncertainties2018 =    lambda : jetmetUncertaintiesProducer("2018", "Autumn18_V8_MC", [ "Total" ], redoJEC=True)
+jetmetUncertainties2018All = lambda : jetmetUncertaintiesProducer("2018", "Autumn18_V8_MC", [ "All" ], redoJEC=True)
+
+""" Why?
+jetmetUncertainties2018A =    lambda : jetmetUncertaintiesProducer("2018", "Autumn18_RunA_V8_DATA", [ "Total" ], redoJEC=True)
+jetmetUncertainties2018AAll = lambda : jetmetUncertaintiesProducer("2018", "Autumn18_RunA_V8_DATA", [ "All" ], redoJEC=True)
+jetmetUncertainties2018B =    lambda : jetmetUncertaintiesProducer("2018", "Autumn18_RunB_V8_DATA", [ "Total" ], redoJEC=True)
+jetmetUncertainties2018BAll = lambda : jetmetUncertaintiesProducer("2018", "Autumn18_RunB_V8_DATA", [ "All" ], redoJEC=True)
+jetmetUncertainties2018C =    lambda : jetmetUncertaintiesProducer("2018", "Autumn18_RunC_V8_DATA", [ "Total" ], redoJEC=True)
+jetmetUncertainties2018CAll = lambda : jetmetUncertaintiesProducer("2018", "Autumn18_RunC_V8_DATA", [ "All" ], redoJEC=True)
+jetmetUncertainties2018D =    lambda : jetmetUncertaintiesProducer("2018", "Autumn18_RunD_V8_DATA", [ "Total" ], redoJEC=True)
+jetmetUncertainties2018DAll = lambda : jetmetUncertaintiesProducer("2018", "Autumn18_RunD_V8_DATA", [ "All" ], redoJEC=True)
+"""
 
 jetmetUncertainties2016AK4Puppi = lambda : jetmetUncertaintiesProducer("2016", "Summer16_23Sep2016V4_MC", [ "Total" ], jetType="AK4PFPuppi")
 jetmetUncertainties2016AK4PuppiAll = lambda : jetmetUncertaintiesProducer("2016", "Summer16_23Sep2016V4_MC",  [ "All" ], jetType="AK4PFPuppi")
@@ -443,3 +460,6 @@ jetmetUncertainties2016AK8PuppiNoGroom = lambda : jetmetUncertaintiesProducer("2
 jetmetUncertainties2016AK8PuppiAllNoGroom = lambda : jetmetUncertaintiesProducer("2016", "Summer16_23Sep2016V4_MC", ["All"], jetType="AK8PFPuppi",redoJEC=False,noGroom=True)
 jetmetUncertainties2017AK8Puppi = lambda : jetmetUncertaintiesProducer("2017", "Fall17_17Nov2017_V6_MC", [ "Total" ], jetType="AK8PFPuppi")
 jetmetUncertainties2017AK8PuppiAll = lambda : jetmetUncertaintiesProducer("2017", "Fall17_17Nov2017_V6_MC", ["All"], jetType="AK8PFPuppi")
+
+
+
