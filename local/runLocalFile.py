@@ -31,11 +31,11 @@ optjsonfile.close()
 ## create dummy sample json to run locally
 options_sample = open('options_sample.json','w')
 
-sampOpt = { 'isData' : False,
-            'triggers' : [], #triggers_mumu_iso + triggers_3mu , # [],#triggers_ee + triggers_3e+triggers_ee_noniso,
+sampOpt = { 'isData' : True,
+            'triggers' : [ 'HLT_IsoMu24', 'HLT_IsoMu24_eta2p1', 'HLT_IsoMu27'], #[triggers_mumu_iso + triggers_3mu] , # [],#triggers_ee + triggers_3e+triggers_ee_noniso,
             'vetotriggers' : [],#triggers_mumu_iso + triggers_3mu,
-            'json':   None, # '/afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions17/13TeV/ReReco/Cert_29497-306462_13TeV_EOY2017ReReco_Collisions17_JSON.txt',
-            'xsec' : 88.,                                                                                              
+            'json':   "/afs/cern.ch/work/c/cericeci/private/nanoAOD/CMSSW_10_2_0/src/PhysicsTools/NanoAODTools/python/postprocessing/modules/WZ_EWK/Cert_314472-325175_13TeV_17SeptEarlyReReco2018ABC_PromptEraD_Collisions18_JSON.txt", 
+            'era': 'A'                                                                                             
             }                                                                                                          
 
 
@@ -47,7 +47,9 @@ options_sample.close()
 handle = open(options.cfg_file,'r')
 cfo = imp.load_source(options.cfg_file.split('/')[-1].rstrip('.py'), options.cfg_file, handle)
 #cfo.POSTPROCESSOR.inputFiles =   ['/afs/cern.ch/work/s/sesanche/public/forEdge/test_forsynch_v4.root'] # #
-cfo.POSTPROCESSOR.inputFiles =   ['B8C1C884-EE4A-1E49-82C9-45332E5C0DB9.root']
+#cfo.POSTPROCESSOR.inputFiles =   ['E9FF967E-2341-9D48-99B1-37F7F6E01606.root'] #ZZZ file
+#cfo.POSTPROCESSOR.inputFiles =   ['E9FF967E-2341-9D48-99B1-37F7F6E01606.root'] #SingleMuon2018A file
+cfo.POSTPROCESSOR.inputFiles =   ['349FAAC5-419F-D64D-A5B7-1EE4FFB33703.root'] #DoubleMuon2018D file
 #cfo.POSTPROCESSOR.inputFiles = ['95EEB251-3893-134B-A1DC-AB8FCB6120A8.root']
 cfo.POSTPROCESSOR.run()
 

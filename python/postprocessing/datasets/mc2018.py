@@ -135,5 +135,10 @@ Rare = [tZq, TTZZ, TTZH, TTWZ, TTTT, TTWH, TTHH, TTWW]
 
 samples = TT + V + ttV + ST + VV + VVV + Rare
 
+QCD_HEM   = ComponentContainer('QCD_HEM','/QCD_Pt-15to7000_TuneCP5_Flat2018_13TeV_pythia8/RunIIAutumn18NanoAOD-102X_upgrade2018_realistic_v15_ext1-v1/NANOAODSIM', 1.)
+QCD_NOHEM = ComponentContainer('QCD_NOHEM','/QCD_Pt-15to7000_TuneCP5_Flat2018_13TeV_pythia8/RunIIAutumn18NanoAOD-HEM_102X_upgrade2018_realistic_v15_ext1-v1/NANOAODSIM', 1.)
+
+samples = [QCD_HEM, QCD_NOHEM]
+
 for sample in samples:
     sample.options['isData'] = False
