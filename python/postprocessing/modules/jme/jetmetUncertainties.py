@@ -23,15 +23,15 @@ class jetmetUncertaintiesProducer(Module):
         self.jesUncertainties = jesUncertainties
 
         # smear jet pT to account for measured difference in JER between data and simulation.
-	if self.era == 2016:
+	if self.era == "2016":
             self.jerInputFileName = "Summer16_25nsV1_MC_PtResolution_" + jetType + ".txt"
             self.jerUncertaintyInputFileName = "Summer16_25nsV1_MC_SF_" + jetType + ".txt"
 
-	if self.era == 2017:
+	if self.era == "2017":
             self.jerInputFileName = "Fall17_V3_MC_PtResolution_" + jetType + ".txt"
             self.jerUncertaintyInputFileName = "Fall17_V3_MC_SF_" + jetType + ".txt"
 
-	if self.era == 2018:
+	if self.era == "2018":
             self.jerInputFileName = "Autumn18_V1_MC_PtResolution_" + jetType + ".txt"
             self.jerUncertaintyInputFileName = "Autumn18_V1_MC_SF_" + jetType + ".txt"
 
@@ -450,7 +450,7 @@ jetmetUncertainties2017AK8chsAll = lambda : jetmetUncertaintiesProducer("2017", 
 jetmetUncertainties2018 =    lambda : jetmetUncertaintiesProducer("2018", "Autumn18_V8_MC", [ "Total" ], redoJEC=True)
 jetmetUncertainties2018All = lambda : jetmetUncertaintiesProducer("2018", "Autumn18_V8_MC", [ "All" ], redoJEC=True)
 
-jetmetUncertaintiesFast2016 =    lambda : jetmetUncertaintiesProducer("2016", "Spring16_FastSimV1_MC", [ "All" ], redoJEC=True)
+jetmetUncertaintiesFast2016 =    lambda : jetmetUncertaintiesProducer("2016", "Spring16_FastSimV1_MC", [ "Total" ], redoJEC=True)
 jetmetUncertaintiesFast2017 =    lambda : jetmetUncertaintiesProducer("2017", "Fall17_FastSimV1_MC"  , [ "Total" ], redoJEC=True)
 jetmetUncertaintiesFast2018 =    lambda : jetmetUncertaintiesProducer("2018", "Autumn18_FastSimV1_MC", [ "Total" ], redoJEC=True)
 
