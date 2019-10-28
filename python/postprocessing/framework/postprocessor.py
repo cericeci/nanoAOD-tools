@@ -12,7 +12,7 @@ from PhysicsTools.NanoAODTools.postprocessing.framework.jobreport import JobRepo
 
 class PostProcessor :
     def __init__(self,outputDir,inputFiles,cut=None,branchsel=None,modules=[],compression="LZMA:9",friend=False,postfix=None,
-		 jsonInput=None,noOut=False,justcount=False,provenance=False,haddFileName=None,fwkJobReport=False,histFileName=None,histDirName=None, outputbranchsel=None):
+		 jsonInput=None,noOut=False,justcount=False,provenance=False,haddFileName=None,fwkJobReport=False,histFileName=None,histDirName=None, outputbranchsel=None, SMSMasses=None, doISR=None):
 	self.outputDir=outputDir
 	self.inputFiles=inputFiles
 	self.cut=cut
@@ -30,6 +30,10 @@ class PostProcessor :
 	self.histDirName = None
 	self.hcount = ROOT.TH1F("Count", "Count", 1, 0, 1)
 	self.hsumofweights = ROOT.TH1F("SumWeights", "SumWeights", 1, 0, 1)
+	self.SMSMasses = SMSMasses
+	self.doISR     = doISR
+	if SMSMasses != None: self.hsmscount   = ROOT.TH2F("SMSCount", "SMSCount", 2000, -0.5, 1999.5, 2000, -0.5, 1999.5)
+	if doISR != None:     self.isrconstant = 1.
 	if self.jobReport and not self.haddFileName :
 		print "Because you requested a FJR we assume you want the final hadd. No name specified for the output file, will use tree.root"
 		self.haddFileName="tree.root"
@@ -89,10 +93,25 @@ class PostProcessor :
 	    inTree = inFile.Get("Events")
 	    totEntriesRead+=inTree.GetEntries()
 	    self.hcount.SetBinContent(1, inTree.GetEntries())
+            ROOT.gROOT.SetBatch(True)
+            if self.SMSMasses != None:
+                inTree.Draw("MaxIf$(GenPart_mass, abs(GenPart_pdgId) == %i):MaxIf$(GenPart_mass, abs(GenPart_pdgId) == %i) >> hSMS(2000, -0.5, 1999.5, 2000, -0.5, 1999.5)"%(self.SMSMasses[0], self.SMSMasses[1])) 
+                self.hsmscount = ROOT.gDirectory.Get('hSMS')
+	    if self.doISR != None:
+		#Dirty ISR recipe for EWKinos
+                #Need to correct for each mass point
+                #Can't correct per sample (wrong normalization), need to save whole unskimmed histogram per point an then postprocess
+	    	pt1    = "MaxIf$(GenPart_pt, abs(GenPart_pdgId) == %i && GenPart_status == 22)"%self.doISR[0]
+	    	pt2    = "MaxIf$(GenPart_pt, abs(GenPart_pdgId) == %i && GenPart_status == 22)"%self.doISR[1]	
+	    	phi1   = "MaxIf$(GenPart_pt, abs(GenPart_pdgId) == %i && GenPart_status == 22)"%self.doISR[0]
+	    	phi2   = "MaxIf$(GenPart_pt, abs(GenPart_pdgId) == %i && GenPart_status == 22)"%self.doISR[1]
+	    	pt_ISR = "hypot(%s + %s * cos(%s-%s), %s*sin(%s - %s))"%(pt1,pt2,phi2,phi1,pt2,phi2,phi1)
+		inTree.Draw(" %s : MaxIf$(GenPart_mass, abs(GenPart_pdgId) == %i) : MaxIf$(GenPart_mass, abs(GenPart_pdgId) == %i)  >> hISR(1000, -0.5, 1999.5, 1000, -0.5, 1999.5, 20, 0, 1000)"%(pt_ISR,self.SMSMasses[0],self.SMSMasses[1]))
+                self.hISR = ROOT.gDirectory.Get("hISR")
 	    if inTree.GetBranchStatus("genWeight"):
-	      inTree.Project("SumWeightsTemp", "1.0", "genWeight")
-	      sow = ROOT.gROOT.FindObject("SumWeightsTemp").Integral()
-	      self.hsumofweights.SetBinContent(1, sow)
+	        inTree.Project("SumWeightsTemp", "1.0", "genWeight")
+	        sow = ROOT.gROOT.FindObject("SumWeightsTemp").Integral()
+	        self.hsumofweights.SetBinContent(1, sow)
 	    # pre-skimming
 	    elist,jsonFilter = preSkim(inTree, self.json, self.cut)
 	    if self.justcount:
@@ -142,7 +161,13 @@ class PostProcessor :
 
 	    # now write the output
             if not self.noOut: 
+		print "Start writing"
                 self.hcount.Write()
+		print "Start writing"
+		if self.SMSMasses != None: self.hsmscount.Write()
+		print "Start writing"
+                if self.doISR != None:     self.hISR.Write()
+		print "Start writing"
                 self.hsumofweights.Write()
                 outTree.write()
                 outFile.Close()

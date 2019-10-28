@@ -21,6 +21,8 @@ config.Data.unitsPerJob = 1
 config.JobType.inputFiles.append(os.environ["CFG_FILE"])
 # arguments to pass to scriptExe. They have to be like "arg=value". 
 config.JobType.scriptArgs = ["--cfg_file="+os.environ["CFG_FILE"].split('/')[-1]]
+config.JobType.allowUndistributedCMSSW = True
+
 try: config.JobType.inputFiles.extend(os.environ["FILESTOSHIP"].split(','))
 except KeyError: pass
 #if os.environ["ONLYUNPACKED"]!="True": config.JobType.outputFiles.append("heppyOutput.tgz")
