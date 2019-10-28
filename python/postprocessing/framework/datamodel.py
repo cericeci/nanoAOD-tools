@@ -52,6 +52,8 @@ class Object:
         self._prefix = prefix+"_"
         self._index = index
     def __getattr__(self,name):
+        if self._prefix == "SoftActivityJet_" and (name == "mass"):
+            return 0
         if name in self.__dict__: return self.__dict__[name]
         if name[:2] == "__" and name[-2:] == "__":
             raise AttributeError
@@ -78,17 +80,43 @@ class Collection:
     def __init__(self,event,prefix,lenVar=None):
         self._event = event
         self._prefix = prefix
-        if lenVar != None:
+        if lenVar != None and type(prefix) != list:
             self._len = getattr(event,lenVar)
-        else:
+        elif type(prefix) != list:
             self._len = getattr(event,"n"+prefix)
+        self._cumuls = []
         self._cache = {}
     def __getitem__(self,index):
-        if type(index) == int and index in self._cache: return self._cache[index]
-        if index >= self._len: raise IndexError, "Invalid index %r (len is %r) at %s" % (index,self._len,self._prefix)
-        ret = Object(self._event,self._prefix,index=index)
-        if type(index) == int: self._cache[index] = ret
-        return ret
+        if type(self._prefix) != list:
+            if type(index) == int and index in self._cache: return self._cache[index]
+            if index >= self._len: raise IndexError, "Invalid index %r (len is %r) at %s" % (index,self._len,self._prefix)
+            ret = Object(self._event,self._prefix,index=index)
+            if type(index) == int: self._cache[index] = ret
+            return ret
+        else:
+            if index >= self._cumuls[-1]: 
+                #print self._prefix, self._cumuls
+                raise IndexError, "Invalid index %r (len is %r) at %s" % (index,self._cumuls[-1],self._prefix[-1])
+            if type(index) == int and index in self._cache: return self._cache[index]
+            if type(index) == int:
+                idtag = -1
+                subid = -1
+                for i in range(len(self._cumuls)-1):
+                    if index >= self._cumuls[i] and index < self._cumuls[i+1]:
+                        idtag = i
+                        subid = self._cumuls[i]
+                ret = Object(self._event, self._prefix[idtag], index-subid)
+                self._cache[index] = ret
+                return ret
+
     def __len__(self):
         return self._len
+    def __add__(self,other):
+        ret = Collection(self._event, [self._prefix, other._prefix])
+        ret._len = [self._len, other._len]
+        ret._cumuls = [0]
+        for l in ret._len:
+            ret._cumuls.append(ret._cumuls[-1] + l)
+        ret._len = ret._cumuls[-1]
+        return ret
 

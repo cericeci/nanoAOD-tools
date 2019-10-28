@@ -94,20 +94,20 @@ class PostProcessor :
 	    totEntriesRead+=inTree.GetEntries()
 	    self.hcount.SetBinContent(1, inTree.GetEntries())
             ROOT.gROOT.SetBatch(True)
+            if self.SMSMasses != None:
+                inTree.Draw("MaxIf$(GenPart_mass, abs(GenPart_pdgId) == %i):MaxIf$(GenPart_mass, abs(GenPart_pdgId) == %i) >> hSMS(2000, -0.5, 1999.5, 2000, -0.5, 1999.5)"%(self.SMSMasses[0], self.SMSMasses[1])) 
+                self.hsmscount = ROOT.gDirectory.Get('hSMS')
 	    if self.doISR != None:
 		#Dirty ISR recipe for EWKinos
                 #Need to correct for each mass point
                 #Can't correct per sample (wrong normalization), need to save whole unskimmed histogram per point an then postprocess
-	    	pt1    = "MaxIf$(GenPart_pt, GenPart_pdgId == %i && GenPart_status == 22)"%self.doISR[0]
-	    	pt2    = "MaxIf$(GenPart_pt, GenPart_pdgId == %i && GenPart_status == 22)"%self.doISR[1]	
-	    	phi1   = "MaxIf$(GenPart_pt, GenPart_pdgId == %i && GenPart_status == 22)"%self.doISR[0]
-	    	phi2   = "MaxIf$(GenPart_pt, GenPart_pdgId == %i && GenPart_status == 22)"%self.doISR[1]
-	    	pt_ISR = "hypot(%s + %s * std::cos(%s-%s), %s*std::sin(%s - %s))"%(pt1,pt2,phi2,phi1,pt2,phi2,phi1)
-		inTree.Draw(" %s : MaxIf$(GenPart_mass, GenPart_pdgId == %i) : MaxIf$(GenPart_mass, GenPart_pdgId == %i)  >> hISR(200,0,1000,2000, -0.5, 1999.5, 2000, -0.5, 1999.5)"%(pt_ISR,self.doISR[0],self.doISR[1]))
+	    	pt1    = "MaxIf$(GenPart_pt, abs(GenPart_pdgId) == %i && GenPart_status == 22)"%self.doISR[0]
+	    	pt2    = "MaxIf$(GenPart_pt, abs(GenPart_pdgId) == %i && GenPart_status == 22)"%self.doISR[1]	
+	    	phi1   = "MaxIf$(GenPart_pt, abs(GenPart_pdgId) == %i && GenPart_status == 22)"%self.doISR[0]
+	    	phi2   = "MaxIf$(GenPart_pt, abs(GenPart_pdgId) == %i && GenPart_status == 22)"%self.doISR[1]
+	    	pt_ISR = "hypot(%s + %s * cos(%s-%s), %s*sin(%s - %s))"%(pt1,pt2,phi2,phi1,pt2,phi2,phi1)
+		inTree.Draw(" %s : MaxIf$(GenPart_mass, abs(GenPart_pdgId) == %i) : MaxIf$(GenPart_mass, abs(GenPart_pdgId) == %i)  >> hISR(1000, -0.5, 1999.5, 1000, -0.5, 1999.5, 20, 0, 1000)"%(pt_ISR,self.SMSMasses[0],self.SMSMasses[1]))
                 self.hISR = ROOT.gDirectory.Get("hISR")
-            if self.SMSMasses != None:
-                inTree.Draw("MaxIf$(GenPart_mass, GenPart_pdgId == %i):MaxIf$(GenPart_mass, GenPart_pdgId == %i) >> hSMS(2000, -0.5, 1999.5, 2000, -0.5, 1999.5)"%(self.SMSMasses[0], self.SMSMasses[1])) 
-                self.hsmscount = ROOT.gDirectory.Get('hSMS')
 	    if inTree.GetBranchStatus("genWeight"):
 	        inTree.Project("SumWeightsTemp", "1.0", "genWeight")
 	        sow = ROOT.gROOT.FindObject("SumWeightsTemp").Integral()
@@ -161,9 +161,13 @@ class PostProcessor :
 
 	    # now write the output
             if not self.noOut: 
+		print "Start writing"
                 self.hcount.Write()
-		if self.SMSMasses: self.hISR.Write()
-                if self.doISR:     self.hsmscount.Write()
+		print "Start writing"
+		if self.SMSMasses != None: self.hsmscount.Write()
+		print "Start writing"
+                if self.doISR != None:     self.hISR.Write()
+		print "Start writing"
                 self.hsumofweights.Write()
                 outTree.write()
                 outFile.Close()
