@@ -7,8 +7,7 @@ from PhysicsTools.NanoAODTools.postprocessing.framework.eventloop import Module
 import itertools
 
 class SkimRecoLeps(Module):
-    def __init__(self, dataFlag, nMinLeps, tauID = lambda x: 1):
-        self.nMinLeps = nMinLeps
+    def __init__(self, dataFlag):
         self.dataFlag = dataFlag
 
     def beginJob(self):
@@ -26,10 +25,10 @@ class SkimRecoLeps(Module):
         taus = Collection(event, 'TauGood') 
         nlepgood = len(leps)
         ntaugood = len(taus)
-     
+
         self.wrappedOutputTree.fillBranch('isData', self.dataFlag)
 
-        if nlepgood >= self.nMinLeps or (ntaugood + nlepgood) >= 3: return True
+        if nlepgood >= 2 or ((ntaugood) >= 2 and nlepgood >= 1): return True
 
         #self.wrappedOutputTree.fillBranch('prescaleFromSkim', 1)
         return False
