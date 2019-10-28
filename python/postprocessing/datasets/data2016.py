@@ -63,7 +63,7 @@ MET = [
 
 
 
-samples = SingleMuon+SingleElectron+MuonEG+DoubleMuon+DoubleElectron+MET
+samples = SingleMuon #+SingleElectron+MuonEG+DoubleMuon+DoubleElectron+MET
 
 for sample in samples:
     sample.options['isData'] = True

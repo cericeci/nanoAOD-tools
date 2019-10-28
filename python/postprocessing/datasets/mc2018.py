@@ -51,13 +51,13 @@ DY_M50_ext =  ComponentContainer('DYJetsToLL_M50_mad','/DYJetsToLL_M-50_TuneCP5_
 #DY_0Jets  = ComponentContainer('DYJetsToLL_M50_0J', '/DYJetsToLL_0J_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIIFall17NanoAODv4-PU2017_12Apr2018_Nano14Dec2018_102X_mc2017_realistic_v6-v1/NANOAODSIM',0)
 #DY_1Jets  = ComponentContainer('DYJetsToLL_M50_1J', '/DYJetsToLL_1J_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIIFall17NanoAODv4-PU2017_12Apr2018_Nano14Dec2018_102X_mc2017_realistic_v6-v1/NANOAODSIM',0)
 #DY_2Jets  = ComponentContainer('DYJetsToLL_M50_2J', '/DYJetsToLL_2J_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIIFall17NanoAODv4-PU2017_12Apr2018_Nano14Dec2018_102X_mc2017_realistic_v6-v1/NANOAODSIM',0)
-#WJets     = ComponentContainer('WJetsToLNu', '/WJetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv4-PU2017_12Apr2018_Nano14Dec2018_102X_mc2017_realistic_v6-v1/NANOAODSIM',3* 20508.9)
+WJets     = ComponentContainer('WJetsToLNu', '/WJetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv4-PU2017_12Apr2018_Nano14Dec2018_102X_mc2017_realistic_v6-v1/NANOAODSIM',3* 20508.9)
 #W1Jet     = ComponentContainer('W1JetsToLNu', '/W1JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv4-PU2017_12Apr2018_Nano14Dec2018_102X_mc2017_realistic_v6-v1/NANOAODSIM',8123*1.17)
 #W2Jet     = ComponentContainer('W2JetsToLNu', '/W2JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv4-PU2017_12Apr2018_Nano14Dec2018_102X_mc2017_realistic_v6-v1/NANOAODSIM',2785*1.17)
 #W3Jet     = ComponentContainer('W3JetsToLNu', '/W3JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv4-PU2017_12Apr2018_Nano14Dec2018_102X_mc2017_realistic_v6-v1/NANOAODSIM',993.4*1.17)
 #W4Jet     = ComponentContainer('W4JetsToLNu', '/W4JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv4-PU2017_12Apr2018_Nano14Dec2018_102X_mc2017_realistic_v6-v1/NANOAODSIM',542.4*1.17)
 
-V = [DY_M50, DY_M10to50, DY_M50_ext]
+V = [DY_M50, DY_M10to50, DY_M50_ext, WJets]
 
 
 TTWToLNu    = ComponentContainer("TTWToLNu","/TTWJetsToLNu_TuneCP5_13TeV-amcatnloFXFX-madspin-pythia8/RunIIAutumn18NanoAODv4-Nano14Dec2018_102X_upgrade2018_realistic_v16_ext1-v1/NANOAODSIM",0.2043)
@@ -66,22 +66,24 @@ TTWToLNu    = ComponentContainer("TTWToLNu","/TTWJetsToLNu_TuneCP5_13TeV-amcatnl
 #TTZ_LO_ext  = ComponentContainer("TTZ_LO_ext1", "/ttZJets_TuneCP5_13TeV_madgraphMLM_pythia8/RunIIFall17NanoAODv4-PU2017_12Apr2018_Nano14Dec2018_102X_mc2017_realistic_v6_ext1-v1/NANOAODSIM",0.5297/0.692)
 #TTZ_LO      = ComponentContainer("TTZ_LO", "/ttZJets_TuneCP5_13TeV_madgraphMLM_pythia8/RunIIFall17NanoAODv4-PU2017_12Apr2018_Nano14Dec2018_102X_mc2017_realistic_v6_ext1-v1/NANOAODSIM", 0.5297/0.692)
 TTZToLLNuNu = ComponentContainer("TTZToLLNuNu","/TTZToLLNuNu_M-10_TuneCP5_13TeV-amcatnlo-pythia8/RunIIAutumn18NanoAODv4-Nano14Dec2018_102X_upgrade2018_realistic_v16_ext1-v1/NANOAODSIM",0.2529)
+TTZToLLNuNu_m1to10 = ComponentContainer("TTZToLLNuNu_m1to10","/TTZToLL_M-1to10_TuneCP5_13TeV-amcatnlo-pythia8/RunIIAutumn18NanoAODv4-Nano14Dec2018_102X_upgrade2018_realistic_v16-v1/NANOAODSIM",0.0493)
+
 TTZToQQ     = ComponentContainer("TTZToQQ","/TTZToQQ_TuneCP5_13TeV-amcatnlo-pythia8/RunIIAutumn18NanoAODv4-Nano14Dec2018_102X_upgrade2018_realistic_v16-v1/NANOAODSIM",0.5297)
 TTH_amc     = ComponentContainer("TTH_amc","/ttHToNonbb_M125_TuneCP5_13TeV-powheg-pythia8/RunIIAutumn18NanoAODv4-Nano14Dec2018_102X_upgrade2018_realistic_v16-v1/NANOAODSIM",0.5085*(1-0.577))
 #TTH_pow     = ComponentContainer("TTH_pow","/ttHJetTobb_M125_TuneCP5_13TeV_amcatnloFXFX_madspin_pythia8/RunIIFall17NanoAODv4-PU2017_12Apr2018_Nano14Dec2018_new_pmx_102X_mc2017_realistic_v6-v1/NANOAODSIM",0.5085*(1-0.577))
 TTG         = ComponentContainer("TTGJets","/TTGJets_TuneCP5_13TeV-amcatnloFXFX-madspin-pythia8/RunIIAutumn18NanoAODv4-Nano14Dec2018_102X_upgrade2018_realistic_v16-v1/NANOAODSIM", 3.697)
 
-ttV = [TTWToLNu, TTZToLLNuNu, TTZToQQ, TTH_amc, TTG]
+ttV = [TTWToLNu, TTZToLLNuNu, TTZToQQ, TTH_amc, TTG, TTZToLLNuNu_m1to10]
 
 
-tW_            = ComponentContainer('TW','/ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/RunIIAutumn18NanoAODv4-Nano14Dec2018_102X_upgrade2018_realistic_v16_ext1-v1/NANOAODSIM',35.6)
+tW            = ComponentContainer('TW','/ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/RunIIAutumn18NanoAODv4-Nano14Dec2018_102X_upgrade2018_realistic_v16_ext1-v1/NANOAODSIM',35.6)
 tbarW          = ComponentContainer('TbarW','/ST_tW_antitop_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8/RunIIAutumn18NanoAODv4-Nano14Dec2018_102X_upgrade2018_realistic_v16_ext1-v1/NANOAODSIM', 35.6)
 t_sch          = ComponentContainer('T_sch','/ST_s-channel_4f_leptonDecays_TuneCP5_13TeV-madgraph-pythia8/RunIIAutumn18NanoAODv4-Nano14Dec2018_102X_upgrade2018_realistic_v16_ext1-v2/NANOAODSIM',(7.20+4.16)*0.108*3)
 t_tbarch       = ComponentContainer('Tbar_tch','/ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/RunIIAutumn18NanoAODv4-Nano14Dec2018_102X_upgrade2018_realistic_v16-v1/NANOAODSIM',80.95)
 t_tch          = ComponentContainer('T_tch','/ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/RunIIAutumn18NanoAODv4-Nano14Dec2018_102X_upgrade2018_realistic_v16-v1/NANOAODSIM',136.02)
 
 
-ST = [tW_, tbarW, t_sch, t_tch, t_tbarch]
+ST = [tW, tbarW, t_sch, t_tch, t_tbarch]
 
 
 
@@ -118,7 +120,7 @@ WZZ =    ComponentContainer('WZZ','/WZZ_TuneCP5_13TeV-amcatnlo-pythia8/RunIIAutu
 WZG =    ComponentContainer('WZG','/WZG_TuneCP5_13TeV-amcatnlo-pythia8/RunIIAutumn18NanoAODv4-Nano14Dec2018_102X_upgrade2018_realistic_v16-v1/NANOAODSIM',0.0412)
 ZZZ =    ComponentContainer('ZZZ','/ZZZ_TuneCP5_13TeV-amcatnlo-pythia8/RunIIAutumn18NanoAODv4-Nano14Dec2018_102X_upgrade2018_realistic_v16_ext1-v1/NANOAODSIM',0.01398)
 ZG =    ComponentContainer('ZGTo2LG','/ZGToLLG_01J_5f_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIIAutumn18NanoAODv4-Nano14Dec2018_102X_upgrade2018_realistic_v16_ext1-v1/NANOAODSIM',1.)
-WG =    ComponentContainer('WGToLNuG','/WGToLNuG_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv4-Nano14Dec2018_102X_upgrade2018_realistic_v16-v1/NANOAODSIM',1.)
+WG =    ComponentContainer('WGToLNuG_FIX','/WGToLNuG_01J_5f_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIIAutumn18NanoAODv4-Nano14Dec2018_102X_upgrade2018_realistic_v16_ext1-v1/NANOAODSIM',1.)
 
 VVV = [WWW, WWZ, WZZ, WZG, ZZZ, ZG, WG]
 
@@ -134,11 +136,16 @@ TTWW = ComponentContainer('TTWZ','/TTWZ_TuneCP5_13TeV-madgraph-pythia8/RunIIAutu
 Rare = [tZq, TTZZ, TTZH, TTWZ, TTTT, TTWH, TTHH, TTWW]
 
 samples = TT + V + ttV + ST + VV + VVV + Rare
+samples = [WG]
+#QCD_HEM   = ComponentContainer('QCD_HEM','/QCD_Pt-15to7000_TuneCP5_Flat2018_13TeV_pythia8/RunIIAutumn18NanoAOD-102X_upgrade2018_realistic_v15_ext1-v1/NANOAODSIM', 1.)
+#QCD_NOHEM = ComponentContainer('QCD_NOHEM','/QCD_Pt-15to7000_TuneCP5_Flat2018_13TeV_pythia8/RunIIAutumn18NanoAOD-HEM_102X_upgrade2018_realistic_v15_ext1-v1/NANOAODSIM', 1.)
 
-QCD_HEM   = ComponentContainer('QCD_HEM','/QCD_Pt-15to7000_TuneCP5_Flat2018_13TeV_pythia8/RunIIAutumn18NanoAOD-102X_upgrade2018_realistic_v15_ext1-v1/NANOAODSIM', 1.)
-QCD_NOHEM = ComponentContainer('QCD_NOHEM','/QCD_Pt-15to7000_TuneCP5_Flat2018_13TeV_pythia8/RunIIAutumn18NanoAOD-HEM_102X_upgrade2018_realistic_v15_ext1-v1/NANOAODSIM', 1.)
+#samples = [QCD_HEM, QCD_NOHEM]
 
-samples = [QCD_HEM, QCD_NOHEM]
+#samples = [TTZToLLNuNu_m1to10]
+
+#SMS_TChiWZ = ComponentContainer('SMS_TChiWZ','/SMS-TChiWZ_ZToLL_TuneCP2_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv4-PUFall18Fast_Nano14Dec2018_102X_upgrade2018_realistic_v16-v1/NANOAODSIM',1.)
+#fastsim = [SMS_TChiWZ,]
 
 for sample in samples:
     sample.options['isData'] = False

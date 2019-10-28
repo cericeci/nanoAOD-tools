@@ -1,19 +1,19 @@
 from PhysicsTools.NanoAODTools.postprocessing.datasets.componentContainer import  ComponentContainer
 
-QCD_15to20_Mu    = ComponentContainer('QCD_15to20_Mu', '/QCD_Pt-15to20_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 2.785e+06 )
-QCD_20to30_Mu    = ComponentContainer('QCD_20to30_Mu', '/QCD_Pt-20to30_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 2.49e+06 )
-QCD_30to50_Mu    = ComponentContainer('QCD_30to50_Mu', '/QCD_Pt-30to50_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 1.364e+06 )
-QCD_50to80_Mu    = ComponentContainer('QCD_50to80_Mu', '/QCD_Pt-50to80_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 377400 )
-QCD_80to120_Mu   = ComponentContainer('QCD_80to120_Mu', '/QCD_Pt-80to120_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 88350 )
-QCD_120to170_Mu  = ComponentContainer('QCD_120to170_Mu', '/QCD_Pt-120to170_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 21250 )
-QCD_170to300_Mu  = ComponentContainer('QCD_170to300_Mu', '/QCD_Pt-170to300_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 6969 )
-QCD_300to470_Mu  = ComponentContainer('QCD_300to470_Mu', '/QCD_Pt-300to470_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 619.5 )
-QCD_470to600_Mu  = ComponentContainer('QCD_470to600_Mu', '/QCD_Pt-470to600_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 58.9 )
-QCD_600to800_Mu  = ComponentContainer('QCD_600to800_Mu', '/QCD_Pt-600to800_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 18.36 )
-QCD_800to1000_Mu = ComponentContainer('QCD_800to1000_Mu', '/QCD_Pt-800to1000_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 3.253 )
-QCD_1000toInf_Mu = ComponentContainer('QCD_1000toInf_Mu', '/QCD_Pt-1000toInf_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 1.075 )
+#QCD_15to20_Mu    = ComponentContainer('QCD_15to20_Mu', '/QCD_Pt-15to20_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 2.785e+06 )
+#QCD_20to30_Mu    = ComponentContainer('QCD_20to30_Mu', '/QCD_Pt-20to30_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 2.49e+06 )
+#QCD_30to50_Mu    = ComponentContainer('QCD_30to50_Mu', '/QCD_Pt-30to50_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 1.364e+06 )
+#QCD_50to80_Mu    = ComponentContainer('QCD_50to80_Mu', '/QCD_Pt-50to80_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 377400 )
+#QCD_80to120_Mu   = ComponentContainer('QCD_80to120_Mu', '/QCD_Pt-80to120_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 88350 )
+#QCD_120to170_Mu  = ComponentContainer('QCD_120to170_Mu', '/QCD_Pt-120to170_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 21250 )
+#QCD_170to300_Mu  = ComponentContainer('QCD_170to300_Mu', '/QCD_Pt-170to300_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 6969 )
+#QCD_300to470_Mu  = ComponentContainer('QCD_300to470_Mu', '/QCD_Pt-300to470_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 619.5 )
+#QCD_470to600_Mu  = ComponentContainer('QCD_470to600_Mu', '/QCD_Pt-470to600_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 58.9 )
+#QCD_600to800_Mu  = ComponentContainer('QCD_600to800_Mu', '/QCD_Pt-600to800_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 18.36 )
+#QCD_800to1000_Mu = ComponentContainer('QCD_800to1000_Mu', '/QCD_Pt-800to1000_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 3.253 )
+#QCD_1000toInf_Mu = ComponentContainer('QCD_1000toInf_Mu', '/QCD_Pt-1000toInf_MuEnrichedPt5_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 1.075 )
 
-QCD_Mu = [ QCD_15to20_Mu, QCD_20to30_Mu, QCD_30to50_Mu, QCD_50to80_Mu, QCD_80to120_Mu, QCD_120to170_Mu, QCD_170to300_Mu, QCD_300to470_Mu, QCD_470to600_Mu,QCD_1000toInf_Mu, QCD_600to800_Mu, QCD_800to1000_Mu]  
+QCD_Mu = [ ]#QCD_15to20_Mu, QCD_20to30_Mu, QCD_30to50_Mu, QCD_50to80_Mu, QCD_80to120_Mu, QCD_120to170_Mu, QCD_170to300_Mu, QCD_300to470_Mu, QCD_470to600_Mu,QCD_1000toInf_Mu, QCD_600to800_Mu, QCD_800to1000_Mu]  
 
 #QCD_15to20_EM    = ComponentContainer('QCD_15to20_EM', '/QCD_Pt-15to20_EMEnriched_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM',  1.33e+06 )
 #QCD_20to30_EM    = ComponentContainer('QCD_20to30_EM', '/QCD_Pt-20to30_EMEnriched_TuneCUETP8M1_13TeV_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM', 4.928e+06 )
@@ -40,8 +40,8 @@ DY_M10to50 =  ComponentContainer('DYJetsToLL_M10to50','/DYJetsToLL_M-10to50_Tune
 DY_M50_ext1 =  ComponentContainer('DYJetsToLL_M50_ext1','/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6_ext1-v1/NANOAODSIM'    ,2008.*3)
 DY_M50_ext2 =  ComponentContainer('DYJetsToLL_M50_ext2','/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6_ext2-v1/NANOAODSIM'    ,2008.*3)
 WJets     = ComponentContainer('WJetsToLNu', '/WJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM',3* 20508.9)
-
-V = [DY_M50, DY_M10to50, DY_M50_ext1, DY_M50_ext2, WJets]
+GJets     = ComponentContainer('GJets', '/GJets_SM_5f_TuneCUETP8M1_EWK_13TeV-madgraph-pythia8/RunIISummer16NanoAODv4-Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM',30.64)
+V = [DY_M50, DY_M10to50, DY_M50_ext1, DY_M50_ext2, WJets, GJets]
 
 
 TTWToLNu    = ComponentContainer("TTWToLNu","/TTWJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-madspin-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6_ext1-v1/NANOAODSIM",0.2043)
@@ -54,14 +54,14 @@ TTG         = ComponentContainer("TTGJets","/TTGJets_TuneCUETP8M1_13TeV-amcatnlo
 ttV = [TTWToLNu, TTZToLLNuNu, TTZToQQ, TTH_nonbb, TTG]
 
 
-tW_            = ComponentContainer('TW','/ST_tW_top_5f_NoFullyHadronicDecays_13TeV-powheg_TuneCUETP8M1/RunIISummer16NanoAODv4-Nano14Dec2018_102X_mcRun2_asymptotic_v6_ext2-v1/NANOAODSIM',35.6)
+tW             = ComponentContainer('TW','/ST_tW_top_5f_NoFullyHadronicDecays_13TeV-powheg_TuneCUETP8M1/RunIISummer16NanoAODv4-Nano14Dec2018_102X_mcRun2_asymptotic_v6_ext2-v1/NANOAODSIM',35.6)
 tbarW          = ComponentContainer('TbarW','/ST_tW_antitop_5f_NoFullyHadronicDecays_13TeV-powheg_TuneCUETP8M1/RunIISummer16NanoAODv4-Nano14Dec2018_102X_mcRun2_asymptotic_v6_ext2-v1/NANOAODSIM', 35.6)
 t_sch          = ComponentContainer('T_sch','/ST_s-channel_4f_leptonDecays_TuneCUETP8M1_13TeV-madgraph-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6_ext1-v2/NANOAODSIM',(7.20+4.16)*0.108*3)
 t_tbarch       = ComponentContainer('Tbar_tch','/ST_t-channel_antitop_4f_inclusiveDecays_13TeV-powhegV2-madspin-pythia8_TuneCUETP8M1/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM',80.95)
 t_tch          = ComponentContainer('T_tch','/ST_t-channel_top_4f_inclusiveDecays_13TeV-powhegV2-madspin-pythia8_TuneCUETP8M1/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM',136.02)
 
 
-ST = [tW_, tbarW, t_sch, t_tch, t_tbarch]
+ST = [tW, tbarW, t_sch, t_tch, t_tbarch]
 
 
 
@@ -72,9 +72,9 @@ WZTo3LNu_ext  = ComponentContainer("WZTo3LNu_ext","/WZTo3LNu_TuneCUETP8M1_13TeV-
 WZTo3LNu_pow  = ComponentContainer("WZTo3LNu_pow","/WZTo3LNu_TuneCUETP8M1_13TeV-powheg-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM",4.452)
 WZTo3LNu_mll01  = ComponentContainer("WZTo3LNu_mll01","/WZTo3LNu_mllmin01_13TeV-powheg-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM",4.452)
 
-WZTo3LNu_PtZ0_200  = ComponentContainer("WZTo3LNu_PtZ0_200","/WZTo3LNu_PtZ-0To200_aTGC_13TeV-amcatnloFXFX-madspin-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM",1)
-WZTo3LNu_PtZ200_300  = ComponentContainer("WZTo3LNu_PtZ200_300","/WZTo3LNu_PtZ-200To300_aTGC_13TeV-amcatnloFXFX-madspin-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM",1)
-WZTo3LNu_PtZ300  = ComponentContainer("WZTo3LNu_PtZ300","/WZTo3LNu_PtZ-300_aTGC_13TeV-amcatnloFXFX-madspin-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM",1)
+#WZTo3LNu_PtZ0_200  = ComponentContainer("WZTo3LNu_PtZ0_200","/WZTo3LNu_PtZ-0To200_aTGC_13TeV-amcatnloFXFX-madspin-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM",1)
+#WZTo3LNu_PtZ200_300  = ComponentContainer("WZTo3LNu_PtZ200_300","/WZTo3LNu_PtZ-200To300_aTGC_13TeV-amcatnloFXFX-madspin-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM",1)
+#WZTo3LNu_PtZ300  = ComponentContainer("WZTo3LNu_PtZ300","/WZTo3LNu_PtZ-300_aTGC_13TeV-amcatnloFXFX-madspin-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM",1)
 
 
 WZTo2L2Q  = ComponentContainer("WZTo2L2Q","/WZTo2L2Q_13TeV_amcatnloFXFX_madspin_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM",5.60)
@@ -92,7 +92,7 @@ GGToZZTo2mu2tau   = ComponentContainer('GluGluToContinToZZTo2mu2tau' ,'/GluGluTo
 GGToZZTo4e        = ComponentContainer('GluGluToContinToZZTo4e'      ,'/GluGluToContinToZZTo4e_13TeV_MCFM701_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM',0.00159)
 GGToZZTo4mu       = ComponentContainer('GluGluToContinToZZTo4mu'     ,'/GluGluToContinToZZTo4mu_13TeV_MCFM701_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM',0.00159)
 GGToZZTo4tau      = ComponentContainer('GluGluToContinToZZTo4tau', '/GluGluToContinToZZTo4tau_13TeV_MCFM701_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM',0.00159)
-GGHZZ  = ComponentContainer('HZZ', '/GluGluHToZZTo4L_M125_13TeV_powheg2_JHUgenV6_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM',1)
+GGHZZ  = ComponentContainer('HZZ', '/GluGluHToZZTo4L_M125_13TeV_powheg2_JHUgenV6_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM',0.01212)
 
 VH = ComponentContainer('VHToNonbb', '/VHToNonbb_M125_13TeV_amcatnloFXFX_madspin_pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM',0.9561)
 
@@ -104,7 +104,7 @@ WWZ =    ComponentContainer('WWZ','/WWZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8/RunI
 WZZ =    ComponentContainer('WZZ','/WZZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM',0.05565)
 WZG =    ComponentContainer('WZG','/WZG_TuneCUETP8M1_13TeV-amcatnlo-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM',0.0412)
 ZZZ =    ComponentContainer('ZZZ','/ZZZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM',0.01398)
-ZG =    ComponentContainer('ZGTo2LG','/ZGTo2LG_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6_ext1-v1/NANOAODSIM',1.)
+ZG =    ComponentContainer('ZGTo2LG','/ZGTo2LG_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6_ext1-v1/NANOAODSIM',131.3)
 WG =    ComponentContainer('WGToLNuG','/WGToLNuG_01J_5f_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM',1.)
 
 VVV = [WWW, WWZ, WZZ, WZG, ZZZ, ZG, WG]
@@ -122,10 +122,11 @@ Rare = [tZq, TTZZ, TTZH, TTWZ, TTTT, TTWH, TTHH, TTWW]
 
 samples = TT + V + ttV + ST + VV + VVV + Rare
 
-samples = [TTZToLLNuNu_m1to10]
+#samples = [GJets]
+#samples = [TTZToLLNuNu_m1to10]
 
-SMS_TChiWZ = ComponentContainer('SMS_TChiWZ','/SMS-TChiWZ_ZToLL_mZMin-0p1_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_GridpackScan_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM',1.)
-fastsim = [SMS_TChiWZ,]
+#SMS_TChiWZ = ComponentContainer('SMS_TChiWZ','/SMS-TChiWZ_ZToLL_mZMin-0p1_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv4-PUMoriond17_Nano14Dec2018_GridpackScan_102X_mcRun2_asymptotic_v6-v1/NANOAODSIM',1.)
+#fastsim = [SMS_TChiWZ,]
 
 for sample in samples:
     sample.options['isData'] = False
