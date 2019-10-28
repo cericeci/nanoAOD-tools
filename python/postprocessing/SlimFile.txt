@@ -1,11 +1,11 @@
-keep LHE*
+drop LHE*
 drop CaloMET*
 drop GenJetAK8*
 drop GenVisTau*
-keep PuppiMET*
+drop PuppiMET*
 drop fixedGrid*
 drop L1simulation_step
-keep SoftActivityJet*
+drop SoftActivityJet*
 drop SubJet*
 drop TkMET*
 drop TrigObj*
