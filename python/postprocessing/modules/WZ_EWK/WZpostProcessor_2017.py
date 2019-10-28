@@ -28,7 +28,7 @@ cut = None
 ### SLIM FILE
 outputSlim = os.environ['CMSSW_BASE']+"/python/PhysicsTools/NanoAODTools/postprocessing/modules/WZ_EWK/OutputSlim.txt"
 inputSlim  = os.environ['CMSSW_BASE']+"/python/PhysicsTools/NanoAODTools/postprocessing/modules/WZ_EWK/InputSlim.txt"
-jsonFile   = os.environ['CMSSW_BASE']+"/python/PhysicsTools/NanoAODTools/postprocessing/modules/WZ_EWK/Cert_271036-284044_13TeV_ReReco_07Aug2017_Collisions16_JSON.txt"
+jsonFile   = os.environ['CMSSW_BASE']+"/python/PhysicsTools/NanoAODTools/postprocessing/modules/WZ_EWK/Cert_294927-306462_13TeV_EOY2017ReReco_Collisions17_JSON.txt"
 
 doData=getCrabOption("doData",False)
 
@@ -36,19 +36,19 @@ doData=getCrabOption("doData",False)
 
 if True:    
   print '[WZpostProcessor]: Submission step'
-  from PhysicsTools.NanoAODTools.postprocessing.datasets.triggers_13TeV_DATA2016 import * 
-  from PhysicsTools.NanoAODTools.postprocessing.datasets.mc2016_v5    import samples as mcSamples
-  from PhysicsTools.NanoAODTools.postprocessing.datasets.data2016_v5  import samples as dataSamples
+  from PhysicsTools.NanoAODTools.postprocessing.datasets.triggers_13TeV_DATA2017 import * 
+  from PhysicsTools.NanoAODTools.postprocessing.datasets.mc2017_v5    import samples as mcSamples
+  from PhysicsTools.NanoAODTools.postprocessing.datasets.data2017_v5  import samples as dataSamples
 
   if doData:        
     selectedSamples = dataSamples
 
     DatasetsAndTriggersMap = {}; DatasetsAndVetosMap = {} 
-    DatasetsAndTriggersMap["DoubleMuon"     ] = triggers2016["triggers_mumu_iso"] + triggers2016["triggers_3mu"]
-    DatasetsAndTriggersMap["MuonEG"         ] = triggers2016["triggers_mue"] + triggers2016["triggers_2mu1e"] + triggers2016["triggers_2e1mu"] + triggers2016["triggers_mue_noiso"]
-    DatasetsAndTriggersMap["DoubleEG"         ] = triggers2016["triggers_ee"] + triggers2016["triggers_3e"] + triggers2016["triggers_ee_noniso"] 
-    DatasetsAndTriggersMap["SingleMuon"     ] = triggers2016["triggers_1mu_iso"] + triggers2016["triggers_mutau"]
-    DatasetsAndTriggersMap["SingleElectron" ] = triggers2016["triggers_1e_iso"] + triggers2016["triggers_eltau"]
+    DatasetsAndTriggersMap["DoubleMuon"     ] = triggers_mumu_iso + triggers_3mu
+    DatasetsAndTriggersMap["MuonEG"         ] = triggers_mue + triggers_2mu1e + triggers_2e1mu +triggers_mue_noiso
+    DatasetsAndTriggersMap["DoubleEG"         ] = triggers_ee + triggers_3e + triggers_ee_noniso 
+    DatasetsAndTriggersMap["SingleMuon"     ] = triggers_1mu_iso + triggers_mutau
+    DatasetsAndTriggersMap["SingleElectron" ] = triggers_1e_iso + triggers_etau
     DatasetsAndTriggersMap["MET" ] = []
     
     DatasetsAndVetosMap["DoubleMuon"    ] = []
@@ -127,28 +127,33 @@ if 'IS_CRAB' in os.environ or 'IS_RUN' in os.environ:
     
     if not sample.options['isData']:
         # add pile-up weight before any skim
-        mod = [puWeight()] + mod
+        mod = [puAutoWeight()] + mod
         
         ## add jet met uncertainties
-        from PhysicsTools.NanoAODTools.postprocessing.modules.jme.jetmetUncertainties import jetmetUncertainties2016All, jetmetUncertainties2016
-        jmeUncert = jetmetUncertainties2016All()
-        jmeUncert.metBranchName = 'MET'
+        from PhysicsTools.NanoAODTools.postprocessing.modules.jme.jetmetUncertainties import jetmetUncertainties2017All, jetmetUncertainties2017
+        jmeUncert = jetmetUncertainties2017All()
+        jmeUncert.metBranchName = 'METFixEE2017'
         mod.extend([jmeUncert])
-        from PhysicsTools.NanoAODTools.postprocessing.modules.WZ_EWK.jetMetCorrelator import jetMetCorrelations2016    
-        mod.extend([jetMetCorrelations2016()])
+        from PhysicsTools.NanoAODTools.postprocessing.modules.WZ_EWK.jetMetCorrelator import jetMetCorrelations2017    
+        mod.extend([jetMetCorrelations2017()])
 
         ## add xsec branch
         addFlags = AddFlags([ (('xsec','F'), lambda ev : sampOpt['xsec'] ) ])
         mod.extend([addFlags])
  
     else:
-        from PhysicsTools.NanoAODTools.postprocessing.modules.jme.jetRecalib import jetRecalib2016BCD, jetRecalib2016EF, jetRecalib2016GH 
-        if ("16B" in sample.name) or ("16C" in sample.name) or ("16D" in sample.name):
-            jmeUncert = jetRecalib2016BCD()
-        if ("16E" in sample.name) or ("16F" in sample.name):
-            jmeUncert = jetRecalib2016EF()
-        if ("16G" in sample.name) or ("16H" in sample.name):
-            jmeUncert = jetRecalib2016GH()
+        from PhysicsTools.NanoAODTools.postprocessing.modules.jme.jetRecalib import jetRecalib2017B, jetRecalib2017C,jetRecalib2017D,jetRecalib2017E, jetRecalib2017F 
+        if ("17B" in sample.name):
+            jmeUncert = jetRecalib2017B()
+        if ("17C" in sample.name):
+            jmeUncert = jetRecalib2017C()
+        if ("17D" in sample.name):
+            jmeUncert = jetRecalib2017D()
+        if ("17E" in sample.name):
+            jmeUncert = jetRecalib2017E()
+        if ("17F" in sample.name):
+            jmeUncert = jetRecalib2017F()
+
         mod.extend([jmeUncert])
 
     
