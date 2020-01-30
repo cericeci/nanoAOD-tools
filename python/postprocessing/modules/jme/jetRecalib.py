@@ -9,7 +9,7 @@ from PhysicsTools.NanoAODTools.postprocessing.tools import matchObjectCollection
 from PhysicsTools.NanoAODTools.postprocessing.modules.jme.JetReCalibrator import JetReCalibrator
 
 class jetRecalib(Module):
-    def __init__(self,  globalTag, jetType = "AK4PFchs"):
+    def __init__(self,  globalTag, jetType = "AK4PFchs", metbranchname="MET"):
 
         if "AK4" in jetType : 
             self.jetBranchName = "Jet"
@@ -20,7 +20,7 @@ class jetRecalib(Module):
             raise ValueError("ERROR: Invalid jet type = '%s'!" % jetType)
         self.rhoBranchName = "fixedGridRhoFastjetAll"
         self.lenVar = "n" + self.jetBranchName
-        
+        self.metbranchname = metbranchname
 
         self.jesInputFilePath = os.environ['CMSSW_BASE'] + "/src/PhysicsTools/NanoAODTools/data/jme/"
 
@@ -41,8 +41,8 @@ class jetRecalib(Module):
     def beginFile(self, inputFile, outputFile, inputTree, wrappedOutputTree):
         self.out = wrappedOutputTree
         self.out.branch("%s_pt_nom" % self.jetBranchName, "F", lenVar=self.lenVar)
-        self.out.branch("MET_pt_nom" , "F")
-        self.out.branch("MET_phi_nom", "F")
+        self.out.branch(self.metbranchname+"_pt_nom" , "F")
+        self.out.branch(self.metbranchname+"_phi_nom", "F")
             
                         
     def endFile(self, inputFile, outputFile, inputTree, wrappedOutputTree):
@@ -51,7 +51,7 @@ class jetRecalib(Module):
     def analyze(self, event):
         """process event, return True (go to next module) or False (fail, go to next event)"""
         jets = Collection(event, self.jetBranchName )
-        met = Object(event, "MET") 
+        met = Object(event, self.metbranchname) 
 
         jets_pt_nom = []
         ( met_px,         met_py         ) = ( met.pt*math.cos(met.phi), met.pt*math.sin(met.phi) )
@@ -74,8 +74,8 @@ class jetRecalib(Module):
                 met_px_nom = met_px_nom - (jet_pt_nom - jet.pt)*jet_cosPhi
                 met_py_nom = met_py_nom - (jet_pt_nom - jet.pt)*jet_sinPhi
         self.out.fillBranch("%s_pt_nom" % self.jetBranchName, jets_pt_nom)
-        self.out.fillBranch("MET_pt_nom", math.sqrt(met_px_nom**2 + met_py_nom**2))
-        self.out.fillBranch("MET_phi_nom", math.atan2(met_py_nom, met_px_nom))        
+        self.out.fillBranch(self.metbranchname+"_pt_nom", math.sqrt(met_px_nom**2 + met_py_nom**2))
+        self.out.fillBranch(self.metbranchname+"_phi_nom", math.atan2(met_py_nom, met_px_nom))        
 
         return True
 
@@ -88,11 +88,11 @@ jetRecalib2016EF  = lambda : jetRecalib("Summer16_07Aug2017EF_V11_DATA")
 jetRecalib2016GH  = lambda : jetRecalib("Summer16_07Aug2017GH_V11_DATA")
 
 
-jetRecalib2017B = lambda : jetRecalib("Fall17_17Nov2017B_V32_DATA")
-jetRecalib2017C = lambda : jetRecalib("Fall17_17Nov2017C_V32_DATA")
-jetRecalib2017D = lambda : jetRecalib("Fall17_17Nov2017DE_V32_DATA")
-jetRecalib2017E = lambda : jetRecalib("Fall17_17Nov2017DE_V32_DATA")
-jetRecalib2017F = lambda : jetRecalib("Fall17_17Nov2017F_V32_DATA")
+jetRecalib2017B = lambda : jetRecalib("Fall17_17Nov2017B_V32_DATA",metbranchname="METFixEE2017")
+jetRecalib2017C = lambda : jetRecalib("Fall17_17Nov2017C_V32_DATA",metbranchname="METFixEE2017")
+jetRecalib2017D = lambda : jetRecalib("Fall17_17Nov2017DE_V32_DATA",metbranchname="METFixEE2017")
+jetRecalib2017E = lambda : jetRecalib("Fall17_17Nov2017DE_V32_DATA",metbranchname="METFixEE2017")
+jetRecalib2017F = lambda : jetRecalib("Fall17_17Nov2017F_V32_DATA",metbranchname="METFixEE2017")
 
 jetRecalib2018B = lambda : jetRecalib("Autumn18_RunB_V19_DATA")
 jetRecalib2018C = lambda : jetRecalib("Autumn18_RunC_V19_DATA")
